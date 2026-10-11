@@ -32,6 +32,7 @@ import (
 	"math/rand"
 	"net"
 	"net/url"
+	"regexp"
 	"strings"
 	"time"
 
@@ -65,6 +66,8 @@ const (
 	// StreamSize controls the maximum amount of in flight data between a client and server.
 	StreamSize = 1048576 // 1MB
 )
+
+const defaultSTUNPort = "3478"
 
 type dummyAddr struct{}
 
@@ -307,22 +310,39 @@ func parseIceServers(addresses []string) []webrtc.ICEServer {
 	if len(addresses) == 0 {
 		return nil
 	}
+
+	var scheme, host, port string
+	var re *regexp.Regexp
+	var matches [][]string
+
+	re = regexp.MustCompile(`^(?:(\w+):)?((?:\d{1,3}\.){3}\d{1,3}|\[[0-9a-f:]{3,39}\]|[^\s:]+?[a-z])(?::(\d{1,5}))?$`)
+
 	for _, address := range addresses {
 		address = strings.TrimSpace(address)
+		matches = re.FindAllStringSubmatch(address, -1)
 
-		// ice.ParseURL recognizes many types of ICE servers,
-		// but we only support stun over UDP currently
-		u, err := url.Parse(address)
-		if err != nil {
-			log.Printf("Warning: Parsing ICE server %v resulted in error: %v, skipping", address, err)
-			continue
-		}
-		if u.Scheme != "stun" {
-			log.Printf("Warning: Only stun: (STUN over UDP) servers are supported currently, skipping %v", address)
+		if len(matches) == 0 {
+			log.Printf("Warning: Skipped invalid STUN URL \"%s\"!", address)
 			continue
 		}
 
-		// add default port, other sanity checks
+		scheme = matches[0][1]
+		host = matches[0][2]
+		port = matches[0][3]
+
+		if scheme == "" {
+			scheme = "stun"
+		} else if scheme != "stun" {
+			log.Printf("Warning: Only \"stun:\" (STUN over UDP) servers are supported currently, skipping %v", address)
+			continue
+		}
+
+		if port == "" {
+			port = defaultSTUNPort
+		}
+
+		address = scheme + ":" + host + ":" + port
+
 		parsedURL, err := ice.ParseURL(address)
 		if err != nil {
 			log.Printf("Warning: Parsing ICE server %v resulted in error: %v, skipping", address, err)
