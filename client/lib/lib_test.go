@@ -197,8 +197,19 @@ func TestICEServerParser(t *testing.T) {
 			{
 				[]string{"stun:stun1.l.google.com:19302", "stun.ekiga.net", "stun:stun.example.com:1234/path?query",
 					"https://example.com", "turn:relay.metered.ca:80?transport=udp"},
-				[][]string{[]string{"stun:stun1.l.google.com:19302"}},
-				1,
+				[][]string{[]string{"stun:stun1.l.google.com:19302"}, []string{"stun:stun.ekiga.net:3478"}},
+				2,
+			},
+			{
+				[]string{"stun:1.1.1.1:11111", "stun:2.2.2.2", "3.3.3.3:33333",
+					"4.4.4.4", "turn:5.5.5.5:80", "stun:6.6.6.6:80?transport=udp"},
+				[][]string{[]string{"stun:1.1.1.1:11111"}, []string{"stun:2.2.2.2:3478"}, []string{"stun:3.3.3.3:33333"}, []string{"stun:4.4.4.4:3478"}},
+				4,
+			},
+			{
+				[]string{"stun:[2a02:1:1:1::1]:11111", "stun:[2a02:2:2:2::2]", "[2a02:3:3:3::3]:33333", "[2a02:4:4:4::4]", "turn:[2a02:5:5:5::5]:80", "stun:[2a02:5:5:5::5]:80?transport=udp"},
+				[][]string{[]string{"stun:[2a02:1:1:1::1]:11111"}, []string{"stun:[2a02:2:2:2::2]:3478"}, []string{"stun:[2a02:3:3:3::3]:33333"}, []string{"stun:[2a02:4:4:4::4]:3478"}},
+				4,
 			},
 		} {
 			servers := parseIceServers(test.input)
