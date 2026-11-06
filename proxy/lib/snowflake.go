@@ -45,15 +45,15 @@ import (
 	"github.com/pion/transport/v4/stdnet"
 	"github.com/pion/webrtc/v4"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/constants"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/covertdtls"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/event"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/messages"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/namematcher"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/nat"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/task"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/util"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/websocketconn"
+	"github.com/excurso/snowflake/v2/common/constants"
+	"github.com/excurso/snowflake/v2/common/covertdtls"
+	"github.com/excurso/snowflake/v2/common/event"
+	"github.com/excurso/snowflake/v2/common/messages"
+	"github.com/excurso/snowflake/v2/common/namematcher"
+	"github.com/excurso/snowflake/v2/common/nat"
+	"github.com/excurso/snowflake/v2/common/task"
+	"github.com/excurso/snowflake/v2/common/util"
+	"github.com/excurso/snowflake/v2/common/websocketconn"
 )
 
 const (

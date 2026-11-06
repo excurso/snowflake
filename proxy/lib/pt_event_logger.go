@@ -6,8 +6,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/event"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/task"
+	"github.com/excurso/snowflake/v2/common/event"
+	"github.com/excurso/snowflake/v2/common/task"
 )
 
 func NewProxyEventLogger(output io.Writer, disableStats bool) event.SnowflakeEventReceiver {

@@ -29,7 +29,7 @@ import (
 	"io"
 	"sync"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/bridgefingerprint"
+	"github.com/excurso/snowflake/v2/common/bridgefingerprint"
 )
 
 var ErrBridgeNotFound = errors.New("bridge with requested fingerprint is unknown to the broker")

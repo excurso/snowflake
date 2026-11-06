@@ -15,10 +15,10 @@ import (
 
 	"gitlab.torproject.org/tpo/anti-censorship/geoip"
 	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/ptutil/safelog"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/covertdtls"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/event"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/version"
-	sf "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/proxy/lib"
+	"github.com/excurso/snowflake/v2/common/covertdtls"
+	"github.com/excurso/snowflake/v2/common/event"
+	"github.com/excurso/snowflake/v2/common/version"
+	sf "github.com/excurso/snowflake/v2/proxy/lib"
 )
 
 const minPollInterval = 2 * time.Second

@@ -1,4 +1,4 @@
-module gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2
+module github.com/excurso/snowflake/v2
 
 go 1.26.10
 
@@ -77,6 +77,7 @@ require (
 	github.com/tjfoc/gmsm v1.4.1 // indirect
 	github.com/txthinking/runnergroup v0.0.0-20250224021307-5864ffeb65ae // indirect
 	github.com/wlynxg/anet v0.0.5 // indirect
+	gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2 v2.10.1 // indirect
 	golang.org/x/mod v0.38.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect
 	golang.org/x/text v0.40.0 // indirect

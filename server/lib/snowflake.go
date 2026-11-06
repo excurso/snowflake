@@ -48,7 +48,7 @@ import (
 	"github.com/xtaci/smux"
 	"golang.org/x/net/http2"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/turbotunnel"
+	"github.com/excurso/snowflake/v2/common/turbotunnel"
 )
 
 const (

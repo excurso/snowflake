@@ -11,8 +11,8 @@ import (
 	"os"
 	"time"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/messages"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/util"
+	"github.com/excurso/snowflake/v2/common/messages"
+	"github.com/excurso/snowflake/v2/common/util"
 )
 
 const (

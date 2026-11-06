@@ -19,8 +19,8 @@ import (
 	"gitlab.torproject.org/tpo/anti-censorship/geoip"
 	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/ptutil/safeprom"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/ipsetsink/sinkcluster"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/messages"
+	"github.com/excurso/snowflake/v2/common/ipsetsink/sinkcluster"
+	"github.com/excurso/snowflake/v2/common/messages"
 )
 
 const (

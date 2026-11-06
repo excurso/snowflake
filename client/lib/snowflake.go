@@ -41,10 +41,10 @@ import (
 	"github.com/xtaci/kcp-go/v5"
 	"github.com/xtaci/smux"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/covertdtls"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/event"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/nat"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/turbotunnel"
+	"github.com/excurso/snowflake/v2/common/covertdtls"
+	"github.com/excurso/snowflake/v2/common/event"
+	"github.com/excurso/snowflake/v2/common/nat"
+	"github.com/excurso/snowflake/v2/common/turbotunnel"
 )
 
 const (

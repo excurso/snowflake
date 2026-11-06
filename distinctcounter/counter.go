@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/ipsetsink/sinkcluster"
+	"github.com/excurso/snowflake/v2/common/ipsetsink/sinkcluster"
 )
 
 func main() {

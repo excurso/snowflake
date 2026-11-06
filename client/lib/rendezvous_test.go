@@ -16,11 +16,11 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/pion/webrtc/v4"
 	. "github.com/smartystreets/goconvey/convey"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/amp"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/messages"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/nat"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/sqsclient"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/util"
+	"github.com/excurso/snowflake/v2/common/amp"
+	"github.com/excurso/snowflake/v2/common/messages"
+	"github.com/excurso/snowflake/v2/common/nat"
+	"github.com/excurso/snowflake/v2/common/sqsclient"
+	"github.com/excurso/snowflake/v2/common/util"
 )
 
 // mockTransport's RoundTrip method returns a response with a fake status and

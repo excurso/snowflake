@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/hex"
 	. "github.com/smartystreets/goconvey/convey"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/bridgefingerprint"
+	"github.com/excurso/snowflake/v2/common/bridgefingerprint"
 	"testing"
 )
 

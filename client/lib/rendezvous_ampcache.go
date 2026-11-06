@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"time"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/amp"
+	"github.com/excurso/snowflake/v2/common/amp"
 )
 
 // ampCacheRendezvous is a RendezvousMethod that communicates with the

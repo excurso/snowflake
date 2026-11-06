@@ -24,9 +24,9 @@ import (
 	"github.com/pion/sdp/v3"
 	"github.com/pion/transport/v4"
 	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/ptutil/safelog"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/messages"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/proxy"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/util"
+	"github.com/excurso/snowflake/v2/common/messages"
+	"github.com/excurso/snowflake/v2/common/proxy"
+	"github.com/excurso/snowflake/v2/common/util"
 
 	"github.com/pion/transport/v4/stdnet"
 	"github.com/pion/webrtc/v4"

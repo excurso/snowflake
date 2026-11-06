@@ -30,9 +30,9 @@ import (
 	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/ptutil/safelog"
 	"golang.org/x/crypto/acme/autocert"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/bridgefingerprint"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/ipsetsink/sinkcluster"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/namematcher"
+	"github.com/excurso/snowflake/v2/common/bridgefingerprint"
+	"github.com/excurso/snowflake/v2/common/ipsetsink/sinkcluster"
+	"github.com/excurso/snowflake/v2/common/namematcher"
 )
 
 type BrokerContext struct {

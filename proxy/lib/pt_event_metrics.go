@@ -1,7 +1,7 @@
 package snowflake_proxy
 
 import (
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/event"
+	"github.com/excurso/snowflake/v2/common/event"
 )
 
 type EventCollector interface {

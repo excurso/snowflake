@@ -15,8 +15,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/sqs"
 	"github.com/aws/aws-sdk-go-v2/service/sqs/types"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/sqsclient"
-	sqscreds "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/sqscreds/lib"
+	"github.com/excurso/snowflake/v2/common/sqsclient"
+	sqscreds "github.com/excurso/snowflake/v2/common/sqscreds/lib"
 )
 
 type sqsRendezvous struct {

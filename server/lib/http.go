@@ -17,9 +17,9 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/encapsulation"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/turbotunnel"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/websocketconn"
+	"github.com/excurso/snowflake/v2/common/encapsulation"
+	"github.com/excurso/snowflake/v2/common/turbotunnel"
+	"github.com/excurso/snowflake/v2/common/websocketconn"
 )
 
 const requestTimeout = 10 * time.Second

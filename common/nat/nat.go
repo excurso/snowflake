@@ -21,7 +21,7 @@ import (
 	"net/url"
 	"time"
 
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/proxy"
+	"github.com/excurso/snowflake/v2/common/proxy"
 
 	"github.com/pion/stun/v3"
 )

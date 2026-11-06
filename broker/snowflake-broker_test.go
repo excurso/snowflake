@@ -18,8 +18,8 @@ import (
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/amp"
-	"gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2/common/messages"
+	"github.com/excurso/snowflake/v2/common/amp"
+	"github.com/excurso/snowflake/v2/common/messages"
 )
 
 func NullLogger() *log.Logger {
