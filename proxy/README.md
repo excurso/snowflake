@@ -67,10 +67,18 @@ Usage of ./proxy:
   -keep-local-addresses
         keep local LAN address ICE candidates.
         This is usually pointless because Snowflake clients don't usually reside on the same local network as the proxy.
-  -log filename
+  -log string
+        Same as -log-file. Kept for compatibility.
+  -log-file filename
         log filename. If not specified, logs will be output to stderr (console).
   -log-local-time
         Use local time for logging (default: UTC)
+  -log-summary-interval duration
+        the time interval between summary log outputs, 0s disables summaries. Valid time units are "s", "m", "h". (default 1h0m0s)
+  -log-unsafely
+        keep IP addresses and other sensitive info in the logs
+  -log-verbosely
+        increase log verbosity
   -metrics
         enable the exposing mechanism for stats using metrics
   -metrics-address address
@@ -91,11 +99,11 @@ Usage of ./proxy:
   -stun URL
         Comma-separated STUN server URLs that this proxy will use will use to, among some other things, determine its public IP address (default "stun:stun.l.google.com:19302,stun:stun.voip.blackberry.com:3478")
   -summary-interval duration
-        the time interval between summary log outputs, 0s disables summaries. Valid time units are "s", "m", "h". (default 1h0m0s)
+        Same as -log-summary-interval. Kept for compatibility.
   -unsafe-logging
-        keep IP addresses and other sensitive info in the logs
+        Same as -log-unsafely. Kept for compatibility.
   -verbose
-        increase log verbosity
+        Same as -log-verbosely. Kept for compatibility.
   -version
         display version info to stderr and quit
 ```

@@ -28,9 +28,15 @@ func main() {
 		fmt.Sprint("a deprecated fallback value for often to ask the broker for a new client. Proxies will dynamically change their poll interval based on broker recommendation. Minumum value is ", minPollInterval, ". Valid time units are \"ms\", \"s\", \"m\", \"h\"."))
 	capacity := flag.Uint("capacity", 0, "maximum concurrent clients (default is to accept an unlimited number of clients)")
 	stunURL := flag.String("stun", sf.DefaultSTUNURL, "Comma-separated STUN server `URL`s that this proxy will use will use to, among some other things, determine its public IP address")
-	logFilename := flag.String("log", "", "log `filename`. If not specified, logs will be output to stderr (console).")
+
+	logFilename := flag.String("log", "", "Same as -log-file. Kept for compatibility.")
+	logFile := flag.String("log-file", *logFilename, "log `filename`. If not specified, logs will be output to stderr (console).")
+
 	rawBrokerURL := flag.String("broker", sf.DefaultBrokerURL, "The `URL` of the broker server that the proxy will be using to find clients")
-	unsafeLogging := flag.Bool("unsafe-logging", false, "keep IP addresses and other sensitive info in the logs")
+
+	unsafeLogging := flag.Bool("unsafe-logging", false, "Same as -log-unsafely. Kept for compatibility.")
+	logUnsafely := flag.Bool("log-unsafely", *unsafeLogging, "keep IP addresses and other sensitive info in the logs")
+
 	logLocalTime := flag.Bool("log-local-time", false, "Use local time for logging (default: UTC)")
 	keepLocalAddresses := flag.Bool("keep-local-addresses", false, "keep local LAN address ICE candidates.\nThis is usually pointless because Snowflake clients don't usually reside on the same local network as the proxy.")
 	defaultRelayURL := flag.String("relay", sf.DefaultRelayURL, "The default `URL` of the server (relay) that this proxy will forward client connections to, in case the broker itself did not specify the said URL")
@@ -42,13 +48,19 @@ func main() {
 	allowNonTLSRelay := flag.Bool("allow-non-tls-relay", false, "allow this proxy to pass client's data to the relay in an unencrypted form.\nThis is only useful if the relay doesn't support encryption, e.g. for testing / development purposes.")
 	NATTypeMeasurementInterval := flag.Duration("nat-retest-interval", time.Hour*24,
 		"the time interval between NAT type is retests (see \"nat-probe-server\"). 0s disables retest. Valid time units are \"s\", \"m\", \"h\".")
-	summaryInterval := flag.Duration("summary-interval", time.Hour,
+
+	summaryInterval := flag.Duration("summary-interval", time.Hour, "Same as -log-summary-interval. Kept for compatibility.")
+	logSummaryInterval := flag.Duration("log-summary-interval", *summaryInterval,
 		"the time interval between summary log outputs, 0s disables summaries. Valid time units are \"s\", \"m\", \"h\".")
+
 	disableStatsLogger := flag.Bool("disable-stats-logger", false, "disable the exposing mechanism for stats using logs")
 	enableMetrics := flag.Bool("metrics", false, "enable the exposing mechanism for stats using metrics")
 	metricsAddress := flag.String("metrics-address", "localhost", "set listen `address` for metrics service")
 	metricsPort := flag.Int("metrics-port", 9999, "set port for the metrics service")
-	verboseLogging := flag.Bool("verbose", false, "increase log verbosity")
+
+	verboseLogging := flag.Bool("verbose", false, "Same as -log-verbosely. Kept for compatibility.")
+	logVerbosely := flag.Bool("log-verbosely", *verboseLogging, "increase log verbosity")
+
 	ephemeralPortsRangeFlag := flag.String("ephemeral-ports-range", "", "Set the `range` of ports used for client connections (format:\"<min>:<max>\").\nUseful in conjunction with port forwarding, in order to make the proxy NAT type \"unrestricted\".\nIf omitted, the ports will be chosen automatically from a wide range.\nWhen specifying the range, make sure it's at least 2x as wide as the amount of clients that you are hoping to serve concurrently (see the \"capacity\" flag).")
 	geoipDatabase := flag.String("geoipdb", "/usr/share/tor/geoip", "path to correctly formatted geoip database mapping IPv4 address ranges to country codes")
 	geoip6Database := flag.String("geoip6db", "/usr/share/tor/geoip6", "path to correctly formatted geoip database mapping IPv6 address ranges to country codes")
@@ -139,7 +151,7 @@ func main() {
 		AllowProxyingToPrivateAddresses: *allowProxyingToPrivateAddresses,
 		AllowNonTLSRelay:                *allowNonTLSRelay,
 
-		SummaryInterval: *summaryInterval,
+		SummaryInterval: *logSummaryInterval,
 		GeoIP:           gip,
 
 		CovertDTLSConfig: cDTLSconfig,
@@ -156,23 +168,23 @@ func main() {
 
 	log.SetFlags(loggerFlags)
 
-	if *verboseLogging {
+	if *logVerbosely {
 		logOutput = os.Stderr
 	}
 
-	if *logFilename != "" {
-		f, err := os.OpenFile(*logFilename, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
+	if *logFile != "" {
+		f, err := os.OpenFile(*logFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
 		if err != nil {
 			log.Fatal(err)
 		}
 		defer f.Close()
-		if *verboseLogging {
+		if *logVerbosely {
 			logOutput = io.MultiWriter(logOutput, f)
 		}
 		eventlogOutput = io.MultiWriter(eventlogOutput, f)
 	}
 
-	if *unsafeLogging {
+	if *logUnsafely {
 		log.SetOutput(logOutput)
 	} else {
 		log.SetOutput(&safelog.LogScrubber{Output: logOutput})
